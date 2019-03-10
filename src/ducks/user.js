@@ -3,7 +3,7 @@ const UPDATE_ROLE = "UPDATE_ROLE";
 
 
 const initialState = {
-  isAdmin: true
+  isAdmin: false
 };
 
 export default function UserReducer(state = initialState, action) {
