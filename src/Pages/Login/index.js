@@ -34,6 +34,12 @@ class Login extends Component {
     this.loginValidation();
   };
 
+  HandleEnterPress = (e) => {
+    if (e.key !== "Enter") return;
+
+    this.loginValidation()
+  };
+
   loginValidation = () => {
     const {login, password} = this.state;
     const {history:{ push }, updateRole} = this.props;
@@ -52,8 +58,8 @@ class Login extends Component {
         <LoginTitle>
           Enter Login and Password
         </LoginTitle>
-        <LoginInput onChange={e => this.handleLoginInput(e)}/>
-        <LoginInput onChange={e => this.handlePasswordInput(e)}/>
+        <LoginInput onChange={e => this.handleLoginInput(e)} onKeyPress={e => this.HandleEnterPress(e)}/>
+        <LoginInput type="password" onChange={e => this.handlePasswordInput(e)} onKeyPress={e => this.HandleEnterPress(e)}/>
         <ButtonsWrapper onClick={e => this.HandleLoginClick(e)}>
           <Button name="login">Login</Button>
           <Button name="continue">Continue as a user</Button>
